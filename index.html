@@ -12,20 +12,30 @@
                 return <p> Hello World </p>
             }
 
-            function Header(){
-                return (
-                <h1>
-                    Develop. Preview. Ship.
-                    <TestComponent />
-                </h1>
-                );
+            function Header(props){
+                console.log(props.title)
+                return <h1>{props.title}</h1>
+            }
+
+            function Header1({ title }){
+                console.log(title)
+                return <h1>{`Cool ${ title }`}</h1>
+            }
+            
+            function Header2({ title }){
+                return <h1>{ title ? title : 'Default Title' }</h1>
             }
 
             function HomePage(){
+                const name = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
                 return (
                 <div>
-                    <h2>This is HomePage</h2>
-                    <Header />
+                    <Header2 title="Develop. Preview. Ship." />
+                    <ul>
+                        {name.map((name) => (
+                            <li key={name}> {name} </li>
+                        ))}
+                    </ul>
                 </div> 
                 );
 
