@@ -7,8 +7,32 @@
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
         <script type="text/jsx">
             const app = document.getElementById('app');
+            
+            function TestComponent() {
+                return <p> Hello World </p>
+            }
+
+            function Header(){
+                return (
+                <h1>
+                    Develop. Preview. Ship.
+                    <TestComponent />
+                </h1>
+                );
+            }
+
+            function HomePage(){
+                return (
+                <div>
+                    <h2>This is HomePage</h2>
+                    <Header />
+                </div> 
+                );
+
+            }
+
             const root = ReactDOM.createRoot(app);
-            root.render(<h1>Love nong lotus</h1>);
+            root.render(<HomePage />);
         </script>
     </body>
 </html>
